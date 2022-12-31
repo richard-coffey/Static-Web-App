@@ -144,18 +144,23 @@
           <div id="counter">
             <script>
               let counterValue;
-              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv/GetCounterValueFunction", 
-              {
-              method: "GET",
-              headers: {
-              "Content-Type": "application/json"
-              }
-            })
-              .then(response => response.text())
-              .then(data => {
-              counterValue = data;
-              document.getElementById("counter").innerHTML = counterValue;
-            });
+              let lastGoodResult;
+
+              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv/GetCounterValueFunction",
+                {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json"
+                  }
+                })
+                .then(response => response.text())
+                .then(data => {
+                  counterValue = data;
+                  if (counterValue !== "0") {
+                    lastGoodResult = counterValue;
+                  }
+                  document.getElementById("counter").innerHTML = counterValue !== "0" ? counterValue : lastGoodResult;
+                });
             </script>
           </div>
         </div>
