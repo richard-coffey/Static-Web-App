@@ -143,24 +143,24 @@
           <h1>You are visitor:</h1>
           <div id="counter">
             <script>
-              let counterValue;
-              let lastGoodResult;
+                let counterValue;
+                let lastGoodResult = "0";  // default value
 
-              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv/GetCounterValueFunction",
-                {
-                  method: "GET",
-                  headers: {
-                    "Content-Type": "application/json"
-                  }
-                })
-                .then(response => response.text())
-                .then(data => {
-                  counterValue = data;
-                  if (counterValue !== "0") {
-                    lastGoodResult = counterValue;
-                  }
-                  document.getElementById("counter").innerHTML = counterValue !== "0" ? counterValue : lastGoodResult;
-                });
+                fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv/GetCounterValueFunction",
+                  {
+                    method: "GET",
+                    headers: {
+                      "Content-Type": "application/json"
+                    }
+                  })
+                  .then(response => response.text())
+                  .then(data => {
+                    counterValue = data;
+                    if (counterValue !== "0") {
+                      lastGoodResult = counterValue;
+                    }
+                    document.getElementById("counter").innerHTML = counterValue !== "0" ? counterValue : lastGoodResult;
+                  });
             </script>
           </div>
         </div>
