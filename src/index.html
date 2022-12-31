@@ -12,7 +12,13 @@
 <meta name="author" content="Marc Bacchi">
 <meta name="description"  content="Built on AWS, provisioned by custom Terraform IaC, Lambda Function, API Gateway.">
 <meta name="keywords" content="HTML, CSS, JavaScript, AWS, Terraform, Serverless, S3, Static Website, Python, DynamoDB">
+<script>
+  const request = new XMLHttpRequest();
 
+  request.open('POST', 'https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-site-counter', true);
+
+  request.send();
+</script>
 </head>
 
 <body>
@@ -138,12 +144,7 @@
           <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
           <h1>You are visitor:</h1>
           <div id="counter">
-            <script>
-              fetch('https://d503n28gj5.execute-api.us-east-1.amazonaws.com/')
-              .then(res => res.json())
-              .then(res => {document.getElementById("counter").innerHTML = res.body.count})
-              .then(data => console.log(data));
-            </script>
+            
           </div>
         </div>
       </div>
