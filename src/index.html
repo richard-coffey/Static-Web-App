@@ -143,24 +143,27 @@
           <h1>You are visitor:</h1>
           <div id="counter">
             <script>
-                let counterValue;
-                let lastGoodResult = "0";  // default value
-
-                fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv/GetCounterValueFunction",
-                  {
-                    method: "GET",
-                    headers: {
+              let counterValue;
+              let lastGoodResult = "0";  // default value
+              let apiHasReturnedNonZeroResult = false;  // track whether API has ever returned a result that was not 0
+              
+              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv/GetCounterValueFunction", 
+              {
+                  method: "GET",
+                  headers: {
                       "Content-Type": "application/json"
-                    }
-                  })
-                  .then(response => response.text())
-                  .then(data => {
-                    counterValue = data;
-                    if (counterValue !== "0") {
+                  }
+              })
+              .then(response => response.text())
+              .then(data => {
+                  counterValue = data;
+                  if (counterValue !== "0") {
                       lastGoodResult = counterValue;
-                    }
-                    document.getElementById("counter").innerHTML = counterValue !== "0" ? counterValue : lastGoodResult;
-                  });
+                      apiHasReturnedNonZeroResult = true;  // update flag
+                  }
+                  // Return default value if API has never returned a non-zero result, otherwise return last good result
+                  document.getElementById("counter").innerHTML = apiHasReturnedNonZeroResult ? lastGoodResult : "0";
+              });
             </script>
           </div>
         </div>
