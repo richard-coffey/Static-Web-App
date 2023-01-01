@@ -129,17 +129,24 @@ html *{
 .skills_list h1{
   font-size: 15px;
 }
+.counter_text{
+  border: 1px solid black;
+  padding-bottom: 10px;
+}
 .counter_text h1{
   /* border-top: 2px solid rgb(0, 0, 0); */
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
-  padding: 10px;
 }
 #counter {
   font-family: monospace;
-  font-size: 12px;
+  font-size: 20px;
   margin: 0 auto;
   text-align: center;
+  text-decoration: underline;
+}
+#counter_box {
+  border: 1px solid black;
 }
 img {
     max-width: 100%;

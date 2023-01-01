@@ -127,11 +127,34 @@
           <div class="skills_header">
           </div>
           <div class="skills_list">
-            <a href="https://www.credly.com/badges/aaf76d43-9ab8-4858-98c2-007c255d5055"><img src="https://cv.richardcoffey.com/img/CERT-Expert-DevOps-Engineer-600x600.png" class="certs" alt="View My Microsoft Certified: DevOps Engineer Expert Certification" alt="View My Microsoft Certified: DevOps Engineer Expert Certification" title="View My Microsoft Certified: DevOps Engineer Expert Certification"><a/>
-            <a href="https://www.credly.com/badges/d463d154-b898-4c9f-9194-7b4958d2d674"><img src="https://cv.richardcoffey.com/img/azure-solutions-architect-expert-600x600.png" class="certs" alt="View My Microsoft Certified: Azure Architect Expert Certification" alt="View My Microsoft Certified: Azure Architect Expert Certification" title="View My Microsoft Certified: Azure Architect Expert Certification" alt="View My Microsoft Certified: Azure Architect Expert Certification"></a>
-            <a href="https://www.credly.com/badges/325d6acc-6201-4e6b-97d4-87689ac395bb"><img src="https://cv.richardcoffey.com/img/azure-developer-associate-600x600.png" class="certs" alt="View My Microsoft Certified: Azure Developer Associate Certification" title="View My Microsoft Certified: Azure Developer Associate Certification"></a>
-            <a href="https://www.credly.com/badges/3363aa96-54fe-410a-ae41-48087b2b6fae"><img src="https://cv.richardcoffey.com/img/microsoft-certified-azure-administrator-associate.2.png" class="certs" alt="View My Microsoft Certified: Azure Administrator Associate Certification" title="View My Microsoft Certified: Azure Administrator Associate Certification"></a>
-            <a href="https://www.credly.com/badges/ae7c35ba-8a3b-4734-a669-5bd75a4a394c"><img src="https://cv.richardcoffey.com/img/microsoft-certified-azure-fundamentals.png" class="certs" alt="View My Microsoft Certified: Azure Fundamentals Certification" title="View My Microsoft Certified: Azure Fundamentals Certification"></a>
+            <a href="https://www.credly.com/badges/aaf76d43-9ab8-4858-98c2-007c255d5055"><img src="../img/CERT-Expert-DevOps-Engineer-600x600.png" class="certs" alt="View My Microsoft Certified: DevOps Engineer Expert Certification" alt="View My Microsoft Certified: DevOps Engineer Expert Certification" title="View My Microsoft Certified: DevOps Engineer Expert Certification"><a/>
+            <a href="https://www.credly.com/badges/d463d154-b898-4c9f-9194-7b4958d2d674"><img src="../img/azure-solutions-architect-expert-600x600.png" class="certs" alt="View My Microsoft Certified: Azure Architect Expert Certification" alt="View My Microsoft Certified: Azure Architect Expert Certification" title="View My Microsoft Certified: Azure Architect Expert Certification" alt="View My Microsoft Certified: Azure Architect Expert Certification"></a>
+            <a href="https://www.credly.com/badges/325d6acc-6201-4e6b-97d4-87689ac395bb"><img src="../img/azure-developer-associate-600x600.png" class="certs" alt="View My Microsoft Certified: Azure Developer Associate Certification" title="View My Microsoft Certified: Azure Developer Associate Certification"></a>
+            <a href="https://www.credly.com/badges/3363aa96-54fe-410a-ae41-48087b2b6fae"><img src="../img/microsoft-certified-azure-administrator-associate.2.png" class="certs" alt="View My Microsoft Certified: Azure Administrator Associate Certification" title="View My Microsoft Certified: Azure Administrator Associate Certification"></a>
+            <a href="https://www.credly.com/earner/earned/badge/ae7c35ba-8a3b-4734-a669-5bd75a4a394c"><img src="../img/microsoft-certified-azure-fundamentals.png" class="certs" alt="View My Microsoft Certified: Azure Fundamentals Certification" title="View My Microsoft Certified: Azure Fundamentals Certification"></a>
+              
+             
+          <div class="counter_text">
+          <h1>You are visitor:</h1>
+          <div id="counter">
+            <script>
+              let counterValue;
+              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-site-counter-value/GetCounterValueFunction", 
+              {
+              method: "GET",
+              headers: {
+              "Content-Type": "application/json"
+              }
+            })
+              .then(response => response.text())
+              .then(data => {
+              counterValue = data;
+              document.getElementById("counter").innerHTML = counterValue;
+            });
+            </script>
+          </div>
+        </div>
+     
             <h1>Troubleshooting</h1>
             <h1>Terraform</h1>
             <h1>AWS | Cloud</h1>
@@ -150,28 +173,6 @@
             <h1>Cloudformation</h1>
             <h1>Javascript</h1>
             <h1>DynamoDB</h1>
-          </div>
-        </div>
-        <div data-iframe-width="250" data-iframe-height="250" data-share-badge-id="4bd3290d-6ac5-4a38-82a5-2e43df07d2cc" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-        <div class="counter_text">
-          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-          <h1>You are visitor:</h1>
-          <div id="counter">
-            <script>
-              let counterValue;
-              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-site-counter-value/GetCounterValueFunction", 
-              {
-              method: "GET",
-              headers: {
-              "Content-Type": "application/json"
-              }
-            })
-              .then(response => response.text())
-              .then(data => {
-              counterValue = data;
-              document.getElementById("counter").innerHTML = counterValue;
-            });
-            </script>
           </div>
         </div>
       </div>
