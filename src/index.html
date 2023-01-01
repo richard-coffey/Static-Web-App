@@ -144,26 +144,18 @@
           <div id="counter">
             <script>
               let counterValue;
-              let lastGoodResult = "0";  // default value
-              let apiHasReturnedNonZeroResult = false;  // track whether API has ever returned a result that was not 0
-              
-              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv/GetCounterValueFunction", 
+              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-site-counter-value/GetCounterValueFunction", 
               {
-                  method: "GET",
-                  headers: {
-                      "Content-Type": "application/json"
-                  }
-              })
+              method: "GET",
+              headers: {
+              "Content-Type": "application/json"
+              }
+            })
               .then(response => response.text())
               .then(data => {
-                  counterValue = data;
-                  if (counterValue !== "0") {
-                      lastGoodResult = counterValue;
-                      apiHasReturnedNonZeroResult = true;  // update flag
-                  }
-                  // Return default value if API has never returned a non-zero result, otherwise return last good result
-                  document.getElementById("counter").innerHTML = apiHasReturnedNonZeroResult ? lastGoodResult : "0";
-              });
+              counterValue = data;
+              document.getElementById("counter").innerHTML = counterValue;
+            });
             </script>
           </div>
         </div>
