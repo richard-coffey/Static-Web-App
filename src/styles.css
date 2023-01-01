@@ -159,3 +159,23 @@ img {
   border: 1px solid black;
   margin: 10px;
 }
+.icon-location {
+  position: relative;
+  top: 2px;
+  left: 0px;
+}
+.icon-phone {
+  position: relative;
+  top: 4px;
+  left: 0px;
+}
+.icon-website {
+  position: relative;
+  top: 2px;
+  left: -2px;
+}
+.icon-email {
+  position: relative;
+  top: 4px;
+  left: -1px;
+}
