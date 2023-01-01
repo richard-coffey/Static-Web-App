@@ -87,9 +87,6 @@ html *{
   font-size: 36px;
   margin-bottom: -5px;
 }
-.work_experience_role-1{
-  margin-top: -25px;
-}
 .work_title{
   font-size: 22px;
 }
@@ -98,6 +95,12 @@ html *{
 }
 .work_description{
   font-size: 15px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.work_description-divide{
+  font-size: 15px;
+  font-weight: bold;
 }
 .work_description .per_store{
   font-style: italic;
@@ -230,4 +233,14 @@ input[type="submit"] {
 }
 .form-text {
   margin: 5px;
+}
+.work-divide-1 {
+  width: 50%;
+  float: left;
+  margin-bottom: 25px;
+}
+.work-divide-2 {
+  width: 50%;
+  float: right;
+  margin-bottom: 25px;
 }
