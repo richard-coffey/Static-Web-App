@@ -198,3 +198,30 @@ img {
   width: 49%;
   height: 49%;
 }
+form {
+  margin-top: 15px;
+  border: 1px solid black;
+}
+
+label {
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  margin: 5px;  
+  width: 90%;
+  font-size: 14px;
+}
+
+input[type="submit"] {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-size: 18px;
+  width: 80%;
+  color: red;
+  text-transform: uppercase;
+}
+.form-text {
+  margin: 5px;
+}
