@@ -275,8 +275,8 @@
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
                 <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br>
-                <input type="submit" value="Submit">
+                <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+                <input type="submit" value="Submit" id="submit-button">
               </form>
               <script>
                 document.getElementById("form").addEventListener("submit", e => {
@@ -289,6 +289,22 @@
                   .then(text => console.log(text));
                 });
               </script>
+              <script>
+                const form = document.getElementById('form');
+form.addEventListener('submit', function(event) {
+  // prevent the default form submission behavior
+  event.preventDefault();
+
+  // change the text of the submit button to "Submitting..."
+  document.getElementById('submit-button').value = 'Submitting...';
+});
+</script>
+<script>
+  form.addEventListener('success', function(event) {
+    // change the text of the submit button to "Submitted"
+    document.getElementById('submit-button').value = 'Submitted';
+  });
+</script>
           </div>
           <span class="copyright">&copy;
             <script type="text/javascript">document.write(new Date().getFullYear());</script>
