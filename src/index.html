@@ -300,16 +300,11 @@
                   // prevent the default form submission behavior
                   event.preventDefault();
 
-                  // change the text of the submit button to "Submitting..."
-                  submitButton.value = 'Submitting...';
+                  // change the text of the submit button to "Submitted"
+                  submitButton.value = 'Submitted';
 
                   // disable the submit button to prevent multiple submissions
                   submitButton.disabled = true;
-                });
-
-                form.addEventListener('success', function (event) {
-                  // change the text of the submit button to "Submitted"
-                  submitButton.value = 'Submitted';
                 });
               </script>
           </div>
