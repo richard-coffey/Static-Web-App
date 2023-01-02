@@ -196,7 +196,18 @@
   <label for="email">Email:</label><br>
   <input type="text" id="email" name="email"><br>
   <input type="submit" value="Submit">
-</form> 
+</form>
+<script>
+  document.getElementById("form").addEventListener("submit", e => {
+    e.preventDefault();
+    fetch("https://api-managment-azure-serverless-cv.azure-api.net/submit", {
+      method: "POST",
+      body: new FormData(e.target)
+    })
+    .then(response => response.text())
+    .then(text => console.log(text));
+  });
+</script> 
           </div>
             <span class="copyright">&copy; <script type="text/javascript">document.write(new Date().getFullYear());</script></span>
         </div>
