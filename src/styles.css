@@ -230,6 +230,7 @@ input[type="submit"] {
   width: 80%;
   color: red;
   text-transform: uppercase;
+  cursor:pointer;
 }
 .form-text {
   margin: 5px;
