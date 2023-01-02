@@ -270,12 +270,15 @@
                 </div>
               </div>
 
-              <form method="post" action="https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/FormSubmissionFunction" id="form">
+              <form method="post"
+                action="https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/FormSubmissionFunction"
+                id="form">
                 <div class="form-text">Enter your name and email to be sent a PDF copy of my CV.</div>
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
                 <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+                <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  required><br>
                 <input type="submit" value="Submit" id="submit-button">
               </form>
               <script>
@@ -285,26 +288,30 @@
                     method: "POST",
                     body: new FormData(e.target)
                   })
-                  .then(response => response.text())
-                  .then(text => console.log(text));
+                    .then(response => response.text())
+                    .then(text => console.log(text));
                 });
               </script>
               <script>
                 const form = document.getElementById('form');
-form.addEventListener('submit', function(event) {
-  // prevent the default form submission behavior
-  event.preventDefault();
+                const submitButton = document.getElementById('submit-button');
 
-  // change the text of the submit button to "Submitting..."
-  document.getElementById('submit-button').value = 'Submitting...';
-});
-</script>
-<script>
-  form.addEventListener('success', function(event) {
-    // change the text of the submit button to "Submitted"
-    document.getElementById('submit-button').value = 'Submitted';
-  });
-</script>
+                form.addEventListener('submit', function (event) {
+                  // prevent the default form submission behavior
+                  event.preventDefault();
+
+                  // change the text of the submit button to "Submitting..."
+                  submitButton.value = 'Submitting...';
+
+                  // disable the submit button to prevent multiple submissions
+                  submitButton.disabled = true;
+                });
+
+                form.addEventListener('success', function (event) {
+                  // change the text of the submit button to "Submitted"
+                  submitButton.value = 'Submitted';
+                });
+              </script>
           </div>
           <span class="copyright">&copy;
             <script type="text/javascript">document.write(new Date().getFullYear());</script>
