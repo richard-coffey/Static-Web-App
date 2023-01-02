@@ -237,10 +237,23 @@ input[type="submit"] {
 .work-divide-1 {
   width: 50%;
   float: left;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .work-divide-2 {
   width: 50%;
   float: right;
+  margin-bottom: 20px;
+}
+.work-divide-3 {
+  width: 50%;
+  float: left;
+  margin-bottom: 25px;
+}
+.work-divide-4 {
+  width: 50%;
+  float: right;
   margin-bottom: 60px;
+}
+.bold{
+  font-weight: bold;
 }
