@@ -281,7 +281,7 @@
               <script>
                 document.getElementById("form").addEventListener("submit", e => {
                   e.preventDefault();
-                  fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/builder", {
+                  fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/FormSubmissionFunction", {
                     method: "POST",
                     body: new FormData(e.target)
                   })
