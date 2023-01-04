@@ -202,7 +202,8 @@
               href="https://cloudresumechallenge.dev/docs/the-challenge/azure/" />Cloud Resume Challenge</a>, I created
             this CV web page as a completely serverless web solution running on Azure. This popular online challenge is
             designed for Cloud Engineers to showcase their cloud skills in a practical way, as it incorporates many
-            different Azure services such as Azure Functions and CosmosDb, besides implementing a full CI/CD approach with
+            different Azure services such as Azure Functions and CosmosDb, besides implementing a full CI/CD approach
+            with
             automated testing and monitoring. This was an excellent mini-project that offers a real life demonstration
             of my coding, Azure and DevOps skills. To read more about how I made this project, please <a
               href="https://richardcoffey.com/blog/my-solution-to-the-cloud-resume-challenge/">read my blog post here on
@@ -252,68 +253,70 @@
               <div class="counter_text">
                 <h1>You are visitor:</h1>
                 <div id="counter">
+                  <div id="loading-indicator" style="display: none;">Loading...</div>
                   <script>
                     let counterValue;
-                    fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-site-counter-value/SiteCounterValueFunction",
-                      {
-                        method: "GET",
-                        headers: {
-                          "Content-Type": "application/json"
-                        }
-                      })
+                    document.getElementById("loading-indicator").style.display = "block";
+                    fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-site-counter-value/SiteCounterValueFunction", {
+                      method: "GET",
+                      headers: {
+                        "Content-Type": "application/json"
+                      }
+                    })
                       .then(response => response.text())
                       .then(data => {
                         counterValue = data;
                         document.getElementById("counter").innerHTML = counterValue;
+                        document.getElementById("loading-indicator").style.display = "none";
                       });
                   </script>
                 </div>
               </div>
-
-              <form method="post"
-                action="https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/FormSubmissionFunction"
-                id="form">
-                <div class="form-text">Enter your name and email to be sent a PDF copy of my CV.</div>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                  required><br>
-                <input type="submit" value="Submit" id="submit-button">
-              </form>
-              <script>
-                document.getElementById("form").addEventListener("submit", e => {
-                  e.preventDefault();
-                  fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/FormSubmissionFunction", {
-                    method: "POST",
-                    body: new FormData(e.target)
-                  })
-                    .then(response => response.text())
-                    .then(text => console.log(text));
-                });
-              </script>
-              <script>
-                const form = document.getElementById('form');
-                const submitButton = document.getElementById('submit-button');
-
-                form.addEventListener('submit', function (event) {
-                  // prevent the default form submission behavior
-                  event.preventDefault();
-
-                  // change the text of the submit button to "Submitted"
-                  submitButton.value = 'Submitted';
-
-                  // disable the submit button to prevent multiple submissions
-                  submitButton.disabled = true;
-                });
-              </script>
           </div>
-          <span class="copyright">&copy;
-            <script type="text/javascript">document.write(new Date().getFullYear());</script>
-          </span>
+
+          <form method="post"
+            action="https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/FormSubmissionFunction"
+            id="form">
+            <div class="form-text">Enter your name and email to be sent a PDF copy of my CV.</div>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+            <input type="submit" value="Submit" id="submit-button">
+          </form>
+          <script>
+            document.getElementById("form").addEventListener("submit", e => {
+              e.preventDefault();
+              fetch("https://api-managment-azure-serverless-cv.azure-api.net/azure-serverless-cv-form-submission/FormSubmissionFunction", {
+                method: "POST",
+                body: new FormData(e.target)
+              })
+                .then(response => response.text())
+                .then(text => console.log(text));
+            });
+          </script>
+          <script>
+            const form = document.getElementById('form');
+            const submitButton = document.getElementById('submit-button');
+
+            form.addEventListener('submit', function (event) {
+              // prevent the default form submission behavior
+              event.preventDefault();
+
+              // change the text of the submit button to "Submitted"
+              submitButton.value = 'Submitted';
+
+              // disable the submit button to prevent multiple submissions
+              submitButton.disabled = true;
+            });
+          </script>
         </div>
+        <span class="copyright">&copy;
+          <script type="text/javascript">document.write(new Date().getFullYear());</script>
+        </span>
       </div>
     </div>
+  </div>
   </div>
 </body>
 
