@@ -267,4 +267,6 @@ input[type="submit"] {
 }
 .copyright{
   font-weight: bold;
+  text-align: center;
+  margin-top: -35px;
 }
